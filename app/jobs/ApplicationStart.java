@@ -31,12 +31,13 @@ public class ApplicationStart extends Job {
         //Get the count of the amount of languages in the current data set
         long count = Language.count();
 
-        if(count == 2){
+        if(count == 3){
           return;
         }
 
         new Language("Java").save();
         new Language("Scala").save();
+        new Language("HTML").save();
     }
 
     private void initVersions(){

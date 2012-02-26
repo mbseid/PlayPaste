@@ -3,7 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /                                       PasteController.index
+GET     /                                       PasteController.create
+POST    /paste/                                 PasteController.post
+GET     /p/{id}                                 PasteController.view
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

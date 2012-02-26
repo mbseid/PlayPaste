@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'PlayPaste: By us, For us' /}
+
+<div class="content">
+    #{form @PasteController.post(), id:'pasteForm'}
+    <div class="form-field">
+        <label>Code</label>
+        <textarea name="text"></textarea>
+    </div>
+    <div class="form-field">
+        <lavel>Language</lavel>
+        <select name="language">
+            <option value="-1" selected></option>
+             #{list items:languages, as:'lang'}
+            <option value="${lang.id}">${lang.name}</option>
+            #{/list}
+        </select>
+    </div>
+    <div class="form-field">
+        <lavel>Version</lavel>
+        <select name="version">
+            <option value="-1" selected></option>
+            #{list items:versions, as:'version'}
+            <option value="${version.id}">${version.number}</option>
+            #{/list}
+        </select>
+    </div>
+    <div class="form-action-bar">
+        <input type="submit" value="Post">
+    </div>
+    #{/form}
+</div>

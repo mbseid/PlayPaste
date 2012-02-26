@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+
+#{set title:'PlayPaste' /}
+
+<script>
+    $(document).ready(function(){
+        SyntaxHighlighter.all();
+    });
+</script>
+<div class="content">
+   <pre class="brush: ${language};">${paste.text}</pre>
+</div>
