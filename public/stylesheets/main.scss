@@ -29,11 +29,20 @@ header{
         list-style: none;
         li{
             a{
-            text-decoration: none;
+                text-decoration: none;
+                text-align: center;
+                color: #444;
+                font-size: 22px;
+                line-height: 75px;
+
             }
+            margin: 0 5px 0 5px;
+            padding: 0 5px 0 5px;
             float: right;
-            text-align: center;
-            line-height: 75px;
+            &:hover{
+                background-color: #DDD;
+            }
+
         }
     }
 }
