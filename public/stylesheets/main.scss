@@ -4,3 +4,36 @@
     margin: 0px;
     box-model: border;
 }
+body{
+    background-color: #EEE;
+}
+header{
+    height: 75px;
+    background-color: #CCC;
+    padding: 0px 30px 0px 30px;
+
+    img{
+        margin-top: 10px;
+        float: left;
+    }
+    span{
+        float: left;
+        padding-left: 15px;
+        font-size: 50px;
+        text-align: center;
+        line-height: 75px;
+        font-style:italic;
+    }
+    ul{
+        float: right;
+        list-style: none;
+        li{
+            a{
+            text-decoration: none;
+            }
+            float: right;
+            text-align: center;
+            line-height: 75px;
+        }
+    }
+}
