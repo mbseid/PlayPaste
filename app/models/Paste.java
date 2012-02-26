@@ -15,5 +15,12 @@ import javax.persistence.Entity;
 public class Paste extends Model {
 
     public String text;
+    public Language language;
+    public Version version;
 
+    public Paste(String text, Language lang, Version version){
+        this.text = text;
+        this.language = lang;
+        this.version = version;
+    }
 }

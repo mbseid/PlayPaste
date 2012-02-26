@@ -9,4 +9,7 @@ package controllers;
  */
 public class PasteController extends Application {
 
+    public static void paste(){
+        render();
+    }
 }
