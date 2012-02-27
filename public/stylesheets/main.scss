@@ -46,3 +46,41 @@ header{
         }
     }
 }
+
+footer{
+    background-color: #CCC;
+    height: 50px;
+}
+
+.content{
+    width: 960px;
+    margin: 30px auto;
+    min-height: 600px;
+}
+
+.form-field{
+    clear: both;
+    margin: 20px;
+    overflow: auto;
+    label{
+        float: left;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    input, select, textarea{
+        float: left;
+        clear: left;
+        font-size: 19px;
+        width: 300px;
+    }
+    textarea{
+        width: 95%;
+        height: 300px;
+    }
+}
+
+.note{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style:italic;
+}

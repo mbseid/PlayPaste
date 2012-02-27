@@ -3,6 +3,7 @@ package controllers;
 import models.Language;
 import models.Paste;
 import models.Version;
+import play.mvc.Controller;
 
 /**
  * User: mseid
@@ -11,7 +12,7 @@ import models.Version;
  * Company: StudyBook
  * Property of OpenEdu LLC. All rights reserved.
  */
-public class PasteController extends Application {
+public class PasteController extends Controller {
 
     public static void create(){
         renderArgs.put("languages", Language.findAll());
@@ -25,6 +26,7 @@ public class PasteController extends Application {
     }
 
     public static void post(String text, long language, long version){
+        System.out.println(text);
         Language lang = Language.findById(language);
         Version ver = Version.findById(version);
         Paste paste = new Paste(text, lang, ver);
@@ -34,8 +36,10 @@ public class PasteController extends Application {
     }
     public static void view(long id){
         Paste paste = Paste.findById(id);
-        renderArgs.put("language", (paste.language == null? "plain": paste.language.name.toLowerCase()));
+        paste.incrementViewCount();
+        renderArgs.put("language", (paste.language == null ? "plain" : paste.language.name.toLowerCase()));
         renderArgs.put("paste", paste);
+        renderArgs.put("timestamp", paste.getTimestampString());
         render();
     }
     public static void delete(long id){

@@ -2,13 +2,14 @@
 #{set title:'PlayPaste: By us, For us' /}
 
 <div class="content">
+    <h2>Paste some code and share it with a friend</h2>
     #{form @PasteController.post(), id:'pasteForm'}
     <div class="form-field">
         <label>Code</label>
         <textarea name="text"></textarea>
     </div>
     <div class="form-field">
-        <lavel>Language</lavel>
+        <label>Language</label>
         <select name="language">
             <option value="-1" selected></option>
              #{list items:languages, as:'lang'}
@@ -17,7 +18,7 @@
         </select>
     </div>
     <div class="form-field">
-        <lavel>Version</lavel>
+        <label>Version</label>
         <select name="version">
             <option value="-1" selected></option>
             #{list items:versions, as:'version'}

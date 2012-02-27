@@ -1,8 +1,10 @@
 package models;
 
+import helpers.DateUtils;
 import play.db.jpa.Model;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ import java.util.Date;
 @Entity
 public class Paste extends Model {
 
+    @Lob
     public String text;
 
     @ManyToOne
@@ -24,7 +27,9 @@ public class Paste extends Model {
     public Version version;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date timestamp;
+    public Date timestamp;
+
+    public int viewCount;
 
 
     public Paste(String text, Language lang, Version version){
@@ -32,5 +37,15 @@ public class Paste extends Model {
         this.language = lang;
         this.version = version;
         timestamp = new Date();
+        viewCount = 0;
+    }
+    public String getTimestampString(){
+        SimpleDateFormat sdf = DateUtils.getFormatter();
+        return new String(sdf.format(timestamp));
+    }
+
+    public void incrementViewCount(){
+        this.viewCount++;
+        this.save();
     }
 }
