@@ -5,6 +5,7 @@ import models.Paste;
 import models.Version;
 import play.mvc.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,10 +25,10 @@ public class PasteController extends Controller {
 
 
     public static void explore(){
-        List<Paste> pastes = Paste.find("order by timestamp desc").from(1).fetch(20);
+        List<Paste> pastes = Paste.find("order by timestamp desc").from(0).fetch(20);
         renderArgs.put("recentPastes", pastes);
         renderArgs.put("languages", Language.findAll());
-        renderArgs.put("pastes", Paste.findAll());
+        renderArgs.put("versions", Version.findAll());
        render();
     }
 
@@ -49,5 +50,31 @@ public class PasteController extends Controller {
     }
     public static void delete(long id){
 
+    }
+    
+    public static void browse(String type, String name){
+        List<Paste> pastes = new ArrayList<Paste>();
+        if(type.matches("language")){
+            Language lang = Language.find("byName",name).first();
+            System.out.println(lang.name);
+            pastes = Paste.find("select p from Paste p where p.language = ? order by timestamp desc",lang).from(0).fetch(100);
+        }else if(type.matches("version")){
+            Version version = Version.find("byNumber",name).first();
+            pastes = Paste.find("select p from Paste p where version=? order by timestamp desc",version).from(0).fetch(100);
+        }
+        
+        renderArgs.put("pastes", pastes);
+        renderArgs.put("languages", Language.findAll());
+        renderArgs.put("versions", Version.findAll());
+        renderTemplate("PasteController/browse.html");
+        render();
+    }
+    public static void browseVersion(String name){
+        List<Paste> pastes = Paste.find("order by timestamp desc").from(0).fetch(20);
+        renderArgs.put("recentPastes", pastes);
+        renderArgs.put("languages", Language.findAll());
+        renderArgs.put("versions", Version.findAll());
+        renderTemplate("PasteController/browse");
+        render();
     }
 }

@@ -28,25 +28,30 @@ public class ApplicationStart extends Job {
      *
      */
     private void initLangauges(){
-        //Get the count of the amount of languages in the current data set
+        //We need to have a single point of configuration. If we add another item to list, everything will be accounted for
+        String[] languages = {"Java", "Scala", "HTML", "SCSS"};
         long count = Language.count();
 
-        if(count == 3){
+        if(count == languages.length){
           return;
         }
+        for(String s : languages){
+            new Language(s).save();
+        }
 
-        new Language("Java").save();
-        new Language("Scala").save();
-        new Language("HTML").save();
+
     }
 
     private void initVersions(){
+        String[] versions = {"1.2.4","1.2.3"};
         long count = Version.count();
 
-        if(count == 1){
+        if(count == versions.length){
             return;
         }
 
-        new Version("1.2.4").save();
+        for(String s : versions){
+            new Version(s).save();
+        }
     }
 }

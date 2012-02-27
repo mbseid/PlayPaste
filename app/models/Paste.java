@@ -6,7 +6,6 @@ import play.db.jpa.Model;
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 /**
  * User: mseid
@@ -43,13 +42,6 @@ public class Paste extends Model {
     public String getTimestampString(){
         SimpleDateFormat sdf = DateUtils.getFormatter();
         return new String(sdf.format(timestamp));
-    }
-
-    public String timeAgoString(){
-        Date currentDate = new Date();
-        HashMap<String, Long> diff = DateUtils.calculateDifference(currentDate, this.timestamp);
-        
-        return diff.get("minutes") + " minutes";
     }
 
     public void incrementViewCount(){

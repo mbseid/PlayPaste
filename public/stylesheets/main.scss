@@ -27,6 +27,7 @@ header{
     ul{
         float: right;
         list-style: none;
+        margin-right: 100px;
         li{
             a{
                 text-decoration: none;
@@ -38,7 +39,7 @@ header{
             }
             margin: 0 5px 0 5px;
             padding: 0 5px 0 5px;
-            float: right;
+            float: left;
             &:hover{
                 background-color: #DDD;
             }
@@ -83,4 +84,18 @@ footer{
     margin-top: 10px;
     margin-bottom: 10px;
     font-style:italic;
+}
+
+.recent{
+    width: 80%;
+    float: left;
+}
+
+.tags{
+    width: 20%;
+    float: left;
+    ul{
+        margin-left: 10px;
+        list-style: none;
+    }
 }
