@@ -5,6 +5,8 @@ import models.Paste;
 import models.Version;
 import play.mvc.Controller;
 
+import java.util.List;
+
 /**
  * User: mseid
  * Date: 2/26/12
@@ -22,11 +24,14 @@ public class PasteController extends Controller {
 
 
     public static void explore(){
-
+        List<Paste> pastes = Paste.find("order by timestamp desc").from(1).fetch(20);
+        renderArgs.put("recentPastes", pastes);
+        renderArgs.put("languages", Language.findAll());
+        renderArgs.put("pastes", Paste.findAll());
+       render();
     }
 
     public static void post(String text, long language, long version){
-        System.out.println(text);
         Language lang = Language.findById(language);
         Version ver = Version.findById(version);
         Paste paste = new Paste(text, lang, ver);

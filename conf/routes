@@ -6,6 +6,7 @@
 GET     /                                       PasteController.create
 POST    /paste/                                 PasteController.post
 GET     /p/{id}                                 PasteController.view
+GET     /explore                                PasteController.explore
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

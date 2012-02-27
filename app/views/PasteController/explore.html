@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+
+#{set title:'Explore - PlayPaste' /}
+<div class="recent">
+    <h1>Here are some other pastes</h1>
+
+    <div class="recent-paste-list">
+        #{list items:recentPastes, as:'paste'}
+        <div class="recent-paste-item">
+            ${paste.language.name} for Play! version ${paste.version.number} was created
+        </div>
+        #{/list}
+    </div>
+</div>
+<div class="tags">
+  <h4>Browse:</h4>
+  <h5>Language:</h5>
+  #{list items:languages, as:'lang'}
+
+  #{/list}
+  <h5>Version:</h5>
+   #{list items:versions, as:'version'}
+
+   #{/list}
+</div>
