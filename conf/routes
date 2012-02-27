@@ -7,13 +7,12 @@ GET     /                                       PasteController.create
 POST    /paste/                                 PasteController.post
 GET     /p/{id}                                 PasteController.view
 GET     /explore                                PasteController.explore
-GET     /browse/{type}/{name}                 PasteController.browse
+GET     /browse/{type}/{name}                   PasteController.browse
+
+GET     /about                                  Application.about
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
-
-# Catch all
-*       /{controller}/{action}                  {controller}.{action}
