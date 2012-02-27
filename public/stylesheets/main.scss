@@ -23,6 +23,7 @@ header{
         text-align: center;
         line-height: 75px;
         font-style:italic;
+        color: black;
     }
     ul{
         float: right;
@@ -51,6 +52,17 @@ header{
 footer{
     background-color: #CCC;
     height: 50px;
+    line-height: 50px;
+            font-size: 19px;
+            text-align: center;
+    #aboutSite{
+        float: right;
+        margin-right: 150px;
+
+    }
+    span{
+      margin-left: 50px;
+    }
 }
 
 .content{

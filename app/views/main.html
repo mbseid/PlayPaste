@@ -14,12 +14,14 @@
         <script src="@{'/public/javascripts/shBrushPlain.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/shBrushJava.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/shBrushScala.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/shBrushXML.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/shBrushJScript.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
     <header>
-        <img src="/public/images/logo.png">
-        <span>Paste</span>
+        #{a @PasteController.create()}<img src="/public/images/logo.png">
+        <span>Paste</span>#{/a}
         <ul>
             <li>#{a @PasteController.create()}new#{/a}</li>
             <li>#{a @PasteController.explore()}explore#{/a}</li>
@@ -27,7 +29,8 @@
     </header>
         #{doLayout /}
     <footer>
-        #{a @Application.about()}About this site#{/a}
+        <span>created with <a href="http://www.playframework.org/">Play! framework</a></span>
+        #{a @Application.about(), id:'aboutSite'}About this site#{/a}
     </footer>
     </body>
 </html>

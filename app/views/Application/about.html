@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+
+#{set title:'About - PlayPaste' /}
+<div class="content">
+    <div class="recent">
+        <h1>Here are some other recent pastes</h1>
+
+        <div class="recent-paste-list">
+            #{list items:pastes, as:'paste'}
+            <div class="recent-paste-item">
+                ${paste.language.name} for Play! version ${paste.version.number} was created ${ paste.timestamp.since() } #{a @PasteController.view(paste.id)}view#{/a}
+            </div>
+            #{/list}
+        </div>
+    </div>
+    #{browseSidebar languages:languages, versions:versions /}
+</div>
+

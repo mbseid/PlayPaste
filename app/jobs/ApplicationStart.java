@@ -29,7 +29,7 @@ public class ApplicationStart extends Job {
      */
     private void initLangauges(){
         //We need to have a single point of configuration. If we add another item to list, everything will be accounted for
-        String[] languages = {"Java", "Scala", "HTML", "SCSS"};
+        String[] languages = {"Java", "Scala", "HTML", "JavaScript", "CSS", "SCSS", "plain"};
         long count = Language.count();
 
         if(count == languages.length){
@@ -43,7 +43,7 @@ public class ApplicationStart extends Job {
     }
 
     private void initVersions(){
-        String[] versions = {"1.2.4","1.2.3"};
+        String[] versions = {"1.2.4","1.2.3","1.2.2","1.2","1.1.1","1.1","1.0.3.2","1.0.2.1","1.0.1","1.0"};
         long count = Version.count();
 
         if(count == versions.length){

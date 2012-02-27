@@ -10,7 +10,9 @@
 <div class="content">
    <pre class="brush: ${language};">${paste.text}</pre>
 
-   <span class="note">Note: To copy all of the text, double click the code snipped </span>
+   <h3>${ paste.language?.name } #{if paste.version != null }on version ${paste.version?.number}#{/if}</h3>
+   <br>
+   <span class="note">Note: To copy all of the text, double click the code snippet </span>
 
-   <h5>This paste was posted on ${timestamp}, and has been ${paste.viewCount} view</h5>
+   <h5>This paste was posted on ${timestamp}, and has ${paste.viewCount} view</h5>
 </div>
