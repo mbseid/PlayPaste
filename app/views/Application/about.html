@@ -2,17 +2,37 @@
 
 #{set title:'About - PlayPaste' /}
 <div class="content">
-    <div class="recent">
-        <h1>Here are some other recent pastes</h1>
-
-        <div class="recent-paste-list">
-            #{list items:pastes, as:'paste'}
-            <div class="recent-paste-item">
-                ${paste.language.name} for Play! version ${paste.version.number} was created ${ paste.timestamp.since() } #{a @PasteController.view(paste.id)}view#{/a}
-            </div>
-            #{/list}
-        </div>
-    </div>
-    #{browseSidebar languages:languages, versions:versions /}
+  <div class="about">
+      <div class="text-frame">
+          <p class="large-text">This project is intended to become a code repository for Play Framework. A place where Play developers can leave code for debugging, or just nice to share.  It will be an ongoing project to assemble a large common function library centered around  Play Framework web development.  Please share some cool tricks you've learned! </p>
+          <br>
+          <h3>Intent</h3>
+          <br>
+           <ol>
+             <li> I wanted to learn about the Play Framework and what it can do.  By building this side, I learned a whole lot about the framework and how enjoyable it makes java development.  Please take the time to review the code, and leave comments on it.  This is a learning experience for me, so if you have a better technique, feel free to share.</li>
+             <li>To be come a code library to share some powerful snippets of code.  The tag capability is not included in the application yet, but will be built in shortly.  Hopefully, it will become a place of sharing for Play framework related code.</li>
+           </ol>
+          
+            <br>
+            <h3>Tech Stack</h3>
+          <br>
+          <ol>
+              <li><a href="http://www.playframework.org/">Play! Framework</a></li>
+              <li><a href="http://www.postgresql.org/">PostgresSQL</a></li>
+              <li><a href="http://sass-lang.com/">SCSS</a></li>
+              <li><a href="http://alexgorbatchev.com/SyntaxHighlighter/">Syntax Highligher</a></li>
+              <li><a href="http://www.heroku.com/">Heroku</a></li>
+          </ol>
+          
+          <br>
+          <h3>Origin</h3>
+          <br>
+          <p>This project was created by Michael Seid, <a href="https://twitter.com/#!/mbseid">@mbseid</a>.  I really liked the looks of Play! Framework, and wanted to try it out.  This was a fun learning exercise, and will hopefully will be helpful to the community.  Please feel free to send me some comments about my <a href="https://github.com/mbseid/PlayPaste">code</a>, or teach me something new!  </p>
+      </div>
+      <div class="stat-frame">
+          <span>There are ${ totalPasteCount } total saved pastes.</span>
+         #{browseSidebar languages:languages, versions:versions /}
+      </div>
+  </div>
 </div>
-
+<a href="https://github.com/mbseid/PlayPaste"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>

@@ -1,13 +1,16 @@
 <div class="tags">
+   #{if _showBrowseLabel}
     <h1>Browse</h1>
-    <h3>Language:</h3>
+    <br>
+    #{/if}
+    <h3>Languages:</h3>
     <ul>
         #{list items:_languages, as:'lang'}
         <li>#{a @PasteController.browse("language",lang.name)}${ lang.name }#{/a} ( ${ lang.pastes.size() } )
             #{/list}
     </ul>
 
-    <h3>Version:</h3>
+    <h3>Versions:</h3>
     <ul>
         #{list items:_versions, as:'version'}
         <li>#{a @PasteController.browse("version",version.number)}${ version.number }#{/a} ( ${ version.pastes.size() } )
