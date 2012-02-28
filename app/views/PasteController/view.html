@@ -11,6 +11,8 @@
    <pre class="brush: ${language};">${paste.text}</pre>
 
    <h3>${ paste.language?.name } #{if paste.version != null }on version ${paste.version?.number}#{/if}</h3>
+    <br>
+    #{a @PasteController.delete(paste.id)}delete this paste#{/a}
    <br>
    <span class="note">Note: To copy all of the text, double click the code snippet </span>
 

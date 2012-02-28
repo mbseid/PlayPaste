@@ -49,7 +49,9 @@ public class PasteController extends Controller {
         render();
     }
     public static void delete(long id){
-
+        Paste paste = Paste.findById(id);
+        paste.delete();
+        create();
     }
     
     public static void browse(String type, String name){
