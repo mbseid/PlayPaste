@@ -8,6 +8,8 @@
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/shCoreDefault.css'}">
         #{get 'moreStyles' /}
 
+
+
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/shCore.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -33,4 +35,5 @@
         #{a @Application.about(), id:'aboutSite'}About this site#{/a}
     </footer>
     </body>
+    #{googleAnalytics /}
 </html>
